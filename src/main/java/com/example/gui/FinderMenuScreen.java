@@ -10,7 +10,7 @@ import com.example.ScannerLogic;
 public class FinderMenuScreen extends Screen {
 
     public FinderMenuScreen() {
-        super(Text.literal("Сканер прогружених чанків"));
+        super(Text.literal("Chunk Scanner"));
     }
 
     @Override
@@ -22,17 +22,17 @@ public class FinderMenuScreen extends Screen {
         int startX = this.width / 2 - buttonWidth / 2;
         int startY = this.height / 2 - 50;
 
-        this.addDrawableChild(ButtonWidget.builder(Text.literal("Шукати Спавнери"), button -> {
+        this.addDrawableChild(ButtonWidget.builder(Text.literal("Find Spawners"), button -> {
             ScannerLogic.scanForBlock(Blocks.SPAWNER);
             this.close();
         }).dimensions(startX, startY, buttonWidth, buttonHeight).build());
 
-        this.addDrawableChild(ButtonWidget.builder(Text.literal("Шукати Скрині"), button -> {
+        this.addDrawableChild(ButtonWidget.builder(Text.literal("Find Chests"), button -> {
             ScannerLogic.scanForBlock(Blocks.CHEST);
             this.close();
         }).dimensions(startX, startY + spacing, buttonWidth, buttonHeight).build());
 
-        this.addDrawableChild(ButtonWidget.builder(Text.literal("Шукати Портал в Енд"), button -> {
+        this.addDrawableChild(ButtonWidget.builder(Text.literal("Find End Portals"), button -> {
             ScannerLogic.scanForBlock(Blocks.END_PORTAL_FRAME);
             this.close();
         }).dimensions(startX, startY + (spacing * 2), buttonWidth, buttonHeight).build());
