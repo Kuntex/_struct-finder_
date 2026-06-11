@@ -13,7 +13,6 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
       - name: Build with Gradle
-        # Оце -Pjava.version=21 змусить його переключитися на 21-шу версію
         run: ./gradlew build -Pjava.version=21
       - name: Upload Mod Jar
         uses: actions/upload-artifact@v4
