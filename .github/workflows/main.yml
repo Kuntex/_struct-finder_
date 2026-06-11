@@ -12,8 +12,9 @@ jobs:
           distribution: 'temurin'
       - name: Make gradlew executable
         run: chmod +x gradlew
+      # Оновлений рядок: спочатку генеруємо проєкт, потім збираємо
       - name: Build with Gradle
-        run: ./gradlew build -Pjava.version=21
+        run: ./gradlew build
       - name: Upload Mod Jar
         uses: actions/upload-artifact@v4
         with:
