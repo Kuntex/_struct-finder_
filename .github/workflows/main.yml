@@ -17,9 +17,9 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
 
+      # Ось тут ми вставляємо оновлену команду збірки
       - name: Build with Gradle
-        # Очищаємо кеш, бо ми міняємо версію Java
-        run: ./gradlew clean build --refresh-dependencies
+        run: ./gradlew clean build --refresh-dependencies --stacktrace
 
       - name: Upload Mod Jar
         uses: actions/upload-artifact@v4
