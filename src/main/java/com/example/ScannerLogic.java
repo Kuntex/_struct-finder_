@@ -25,8 +25,8 @@ public class ScannerLogic {
 
         List<BlockPos> foundPositions = new ArrayList<>();
         
-        // Метод targetBlock.getName() автоматично візьме назву блоку з мови, яка стоїть у клієнта (наприклад, української)
-        client.player.sendMessage(Text.literal("§7[Scanner] Searching for: §e").append(targetBlock.getName()), false);
+        // Block name will be retrieved based on client locale
+        client.player.sendMessage(Text.literal("В§7[Scanner] Searching for: В§e").append(targetBlock.getName()), false);
 
         for (int cx = -chunkRadius; cx <= chunkRadius; cx++) {
             for (int cz = -chunkRadius; cz <= chunkRadius; cz++) {
@@ -42,11 +42,11 @@ public class ScannerLogic {
         }
 
         if (foundPositions.isEmpty()) {
-            client.player.sendMessage(Text.literal("§c[Scanner] No structures found in loaded chunks."), false);
+            client.player.sendMessage(Text.literal("В§c[Scanner] No structures found in loaded chunks."), false);
         } else {
-            client.player.sendMessage(Text.literal("§a[Scanner] Found objects: " + foundPositions.size()), false);
+            client.player.sendMessage(Text.literal("В§a[Scanner] Found objects: " + foundPositions.size()), false);
             for (BlockPos pos : foundPositions) {
-                client.player.sendMessage(Text.literal("§6? X: " + pos.getX() + " | Y: " + pos.getY() + " | Z: " + pos.getZ()), false);
+                client.player.sendMessage(Text.literal("В§6-> X: " + pos.getX() + " | Y: " + pos.getY() + " | Z: " + pos.getZ()), false);
             }
         }
     }
